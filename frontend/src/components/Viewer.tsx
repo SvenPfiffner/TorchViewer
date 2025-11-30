@@ -100,7 +100,6 @@ export default function Viewer({ graphData, onNodeClick }: ViewerProps) {
                 onConnect={onConnect}
                 onNodeClick={(_, node) => onNodeClick(node)}
                 nodeTypes={nodeTypes}
-                colorMode="dark"
                 fitView
             >
                 <Controls />
