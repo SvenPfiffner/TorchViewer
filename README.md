@@ -1,8 +1,8 @@
-# TorchViz - Interactive PyTorch Model Visualizer
+# TorchViewer - Interactive PyTorch Model Visualizer
 
-![TorchViz Demo](assets/demo.png)
+![TorchViewer Demo](assets/demo.png)
 
-**TorchViz** is a small, interactive web application designed to help visualize PyTorch models. By combining a React Flow frontend with a `torch.fx` backend, TorchViz transforms code into beautiful, explorable graphs in real-time.
+**TorchViewer** is a small, interactive web application designed to help visualize PyTorch models. By combining a React Flow frontend with a `torch.fx` backend, TorchViewer transforms code into beautiful, explorable graphs in real-time.
 
 ## ✨ Key Features
 

@@ -71,7 +71,7 @@ example_input = torch.randn(1, 1, 28, 28)`);
             <Sparkles className="text-white" size={20} />
           </div>
           <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-800 to-slate-600">
-            TorchViz
+            TorchViewer
           </h1>
         </div>
 
