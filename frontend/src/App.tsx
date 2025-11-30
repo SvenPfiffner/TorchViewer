@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import { ReactFlowProvider, type Node } from '@xyflow/react';
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
-import { Code2, Play, AlertCircle, Loader2, Sparkles } from 'lucide-react';
+import { Code2, Play, AlertCircle, Loader2, Workflow } from 'lucide-react';
 import Editor from './components/Editor';
 import Viewer from './components/Viewer';
 import DetailsPanel from './components/DetailsPanel';
@@ -68,7 +68,7 @@ example_input = torch.randn(1, 1, 28, 28)`);
       <header className="h-16 border-b border-white/20 bg-white/60 backdrop-blur-xl flex items-center justify-between px-6 z-10 shadow-sm">
         <div className="flex items-center gap-3">
           <div className="p-2 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl shadow-lg shadow-blue-500/20">
-            <Sparkles className="text-white" size={20} />
+            <Workflow className="text-white" size={20} />
           </div>
           <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-800 to-slate-600">
             TorchViewer
