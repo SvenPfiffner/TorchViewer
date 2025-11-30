@@ -45,10 +45,11 @@ const getLayoutedElements = (nodes: Node[], edges: Edge[], direction = 'TB') => 
 
 interface ViewerProps {
     graphData: any;
-    onNodeClick: (node: Node) => void;
+    onNodeClick: (event: React.MouseEvent, node: Node) => void;
+    onPaneClick?: () => void;
 }
 
-export default function Viewer({ graphData, onNodeClick }: ViewerProps) {
+export default function Viewer({ graphData, onNodeClick, onPaneClick }: ViewerProps) {
     const [nodes, setNodes, onNodesChange] = useNodesState<Node>([]);
     const [edges, setEdges, onEdgesChange] = useEdgesState<Edge>([]);
 
@@ -98,7 +99,8 @@ export default function Viewer({ graphData, onNodeClick }: ViewerProps) {
                 onNodesChange={onNodesChange}
                 onEdgesChange={onEdgesChange}
                 onConnect={onConnect}
-                onNodeClick={(_, node) => onNodeClick(node)}
+                onNodeClick={onNodeClick}
+                onPaneClick={onPaneClick}
                 nodeTypes={nodeTypes}
                 fitView
             >
