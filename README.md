@@ -41,26 +41,41 @@
 3.  **Open in Browser**
     Navigate to `http://localhost:5173` to start visualizing!
 
+## 📝 Code Requirements
+
+To ensure TorchViewer can correctly visualize your model, your code must meet the following criteria:
+
+1.  **`model` Variable**: You must instantiate your model and assign it to a variable named `model`.
+    *   *Required for*: Graph extraction.
+2.  **`example_input` Variable**: You must create a dummy input tensor and assign it to a variable named `example_input`.
+    *   *Required for*: Shape inference (displaying input/output dimensions).
+
+### Example Template
+```python
+import torch
+import torch.nn as nn
+
+# 1. Define your model class
+class MyModel(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(1, 32, 3)
+        self.relu = nn.ReLU()
+
+    def forward(self, x):
+        return self.relu(self.conv1(x))
+
+# 2. Instantiate the model as 'model'
+model = MyModel()
+
+# 3. Define example input for shape inference
+example_input = torch.randn(1, 1, 28, 28)
+```
+
 ## 📖 Usage
 
-1.  **Define your Model**: In the code editor on the left, define your PyTorch model class and instantiate it as `model`.
-2.  **Add Example Input**: To enable shape inference, define an `example_input` variable with a dummy tensor.
-    ```python
-    import torch
-    import torch.nn as nn
-
-    class MyModel(nn.Module):
-        def __init__(self):
-            super().__init__()
-            self.conv1 = nn.Conv2d(1, 32, 3)
-            self.relu = nn.ReLU()
-
-        def forward(self, x):
-            return self.relu(self.conv1(x))
-
-    model = MyModel()
-    example_input = torch.randn(1, 1, 28, 28)
-    ```
+1.  **Paste your Code**: Copy the template above or your own code into the editor.
+2.  **Visualize**: Click the **Visualize** button.
 3.  **Visualize**: Click the **Visualize** button in the header.
 4.  **Explore**:
     *   Scroll to zoom, drag to pan.
