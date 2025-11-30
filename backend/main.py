@@ -34,8 +34,8 @@ async def analyze_model(request: CodeRequest):
         
         # Execute the code to define the model class/instance
         # We expect the code to define a variable named 'model' or a class that we can instantiate
-        exec_globals = {}
-        exec(request.code, safe_globals, exec_globals)
+        exec_globals = safe_globals.copy()
+        exec(request.code, exec_globals)
         
         model = exec_globals.get("model")
         
@@ -126,10 +126,25 @@ async def analyze_model(request: CodeRequest):
                     print(f"DEBUG: Error getting module: {e}")
                     metadata['type'] = 'Unknown'
             
+            # Format target name
+            target_name = str(node.target)
+            if node.op == 'call_function':
+                if hasattr(node.target, '__name__'):
+                    target_name = node.target.__name__
+                    # Handle torch.cat specifically or others if needed
+                    if target_name == 'cat':
+                        target_name = 'torch.cat'
+                    elif target_name == 'add':
+                        target_name = 'Add'
+            elif node.op == 'call_method':
+                target_name = str(node.target)
+            elif node.op == 'call_module':
+                target_name = str(node.target)
+
             node_info = {
                 "id": node.name,
                 "op": node.op,
-                "target": str(node.target),
+                "target": target_name,
                 "args": [str(arg) for arg in node.args],
                 "kwargs": {k: str(v) for k, v in node.kwargs.items()},
                 "metadata": metadata
