@@ -9,7 +9,6 @@
 *   **Live Code Editing**: Write or paste your PyTorch model code directly in the browser.
 *   **Interactive Visualization**: Explore your model's architecture with a zoomable, pannable graph.
 *   **Automatic Shape Inference**: Just define an `example_input`, and TorchViz will calculate and display the output dimensions for every layer (e.g., `Output [1, 64, 128, 128]`).
-*   **"Liquid Light" Design**: A premium, glassmorphic UI inspired by modern design systems, featuring a dynamic mesh gradient background and frosted glass elements.
 *   **Detailed Metadata**: Click on any node to reveal a floating details panel with comprehensive layer information (kernel size, stride, padding, etc.).
 *   **Visual Differentiation**: Layers are instantly recognizable through distinct color coding and iconography:
     *   🟢 **Convolution**: Emerald Green
@@ -76,8 +75,7 @@ example_input = torch.randn(1, 1, 28, 28)
 
 1.  **Paste your Code**: Copy the template above or your own code into the editor.
 2.  **Visualize**: Click the **Visualize** button.
-3.  **Visualize**: Click the **Visualize** button in the header.
-4.  **Explore**:
+3.  **Explore**:
     *   Scroll to zoom, drag to pan.
     *   Click on nodes to view detailed parameters.
     *   Observe the data flow and tensor shapes at each step.
@@ -86,7 +84,4 @@ example_input = torch.randn(1, 1, 28, 28)
 
 *   **Frontend**: React, Vite, TypeScript, TailwindCSS, React Flow, Lucide Icons.
 *   **Backend**: FastAPI, PyTorch (`torch.fx`).
-*   **Design**: Custom "Liquid Light" theme with glassmorphism.
 
----
-*Built with ❤️ for the PyTorch Community.*
