@@ -124,8 +124,9 @@ export default function CustomNode({ data, selected }: NodeProps) {
 
       {/* Shape Info */}
       {metadata.shape && (
-        <div className="mt-2 flex items-center justify-center">
-          <span className="text-[10px] font-mono text-slate-400 bg-slate-50 px-2 py-0.5 rounded-full border border-slate-100">
+        <div className="mt-2 flex items-center justify-center gap-1.5">
+          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Output</span>
+          <span className="text-[10px] font-mono text-slate-500 bg-slate-50 px-2 py-0.5 rounded-md border border-slate-200 shadow-sm">
             {String(metadata.shape).replace(/,/g, ', ')}
           </span>
         </div>
