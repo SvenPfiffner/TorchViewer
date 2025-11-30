@@ -11,13 +11,20 @@ export default function CodeEditor({ code, onChange }: CodeEditorProps) {
         <Editor
             height="100%"
             defaultLanguage="python"
-            theme="vs-dark"
+            theme="light"
             value={code}
             onChange={onChange}
             options={{
                 minimap: { enabled: false },
                 fontSize: 14,
+                fontFamily: "'JetBrains Mono', monospace",
                 scrollBeyondLastLine: false,
+                padding: { top: 16, bottom: 16 },
+                lineNumbers: 'on',
+                renderLineHighlight: 'all',
+                smoothScrolling: true,
+                cursorBlinking: 'smooth',
+                cursorSmoothCaretAnimation: 'on',
             }}
         />
     );

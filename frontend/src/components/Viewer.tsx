@@ -104,7 +104,8 @@ export default function Viewer({ graphData, onNodeClick }: ViewerProps) {
                 fitView
             >
                 <Controls />
-                <Background color="#222" gap={16} />
+                <Background color="#cbd5e1" gap={20} size={1} />
+                <Controls className="bg-white/80 backdrop-blur-md border border-white/50 shadow-lg !text-slate-600 [&>button]:!border-slate-200 [&>button:hover]:!bg-slate-100" />
             </ReactFlow>
         </div>
     );
