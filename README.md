@@ -8,7 +8,7 @@
 
 *   **Live Code Editing**: Write or paste your PyTorch model code directly in the browser.
 *   **Interactive Visualization**: Explore your model's architecture with a zoomable, pannable graph.
-*   **Automatic Shape Inference**: Just define an `example_input`, and TorchViz will calculate and display the output dimensions for every layer (e.g., `Output [1, 64, 128, 128]`).
+*   **Automatic Shape Inference**: Just define an `example_input`, and TorchViewer will calculate and display the output dimensions for every layer (e.g., `Output [1, 64, 128, 128]`).
 *   **Detailed Metadata**: Click on any node to reveal a floating details panel with comprehensive layer information (kernel size, stride, padding, etc.).
 *   **Visual Differentiation**: Layers are instantly recognizable through distinct color coding and iconography:
     *   🟢 **Convolution**: Emerald Green
@@ -27,8 +27,8 @@
 
 1.  **Clone the repository**
     ```bash
-    git clone https://github.com/yourusername/torchviz.git
-    cd torchviz
+    git clone https://github.com/SvenPfiffner/TorchViewer.git
+    cd TorchViewer
     ```
 
 2.  **Run the startup script**
