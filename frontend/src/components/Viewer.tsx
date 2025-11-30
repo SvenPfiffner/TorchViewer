@@ -13,7 +13,11 @@ const getLayoutedElements = (nodes: Node[], edges: Edge[], direction = 'TB') => 
     dagreGraph.setDefaultEdgeLabel(() => ({}));
 
     const isHorizontal = direction === 'LR';
-    dagreGraph.setGraph({ rankdir: direction });
+    dagreGraph.setGraph({
+        rankdir: direction,
+        ranksep: 100, // Increased vertical spacing
+        nodesep: 80   // Increased horizontal spacing
+    });
 
     nodes.forEach((node) => {
         dagreGraph.setNode(node.id, { width: 220, height: 100 });
