@@ -122,6 +122,15 @@ export default function CustomNode({ data, selected }: NodeProps) {
         </div>
       )}
 
+      {/* Shape Info */}
+      {metadata.shape && (
+        <div className="mt-2 flex items-center justify-center">
+          <span className="text-[10px] font-mono text-slate-400 bg-slate-50 px-2 py-0.5 rounded-full border border-slate-100">
+            {String(metadata.shape).replace(/,/g, ', ')}
+          </span>
+        </div>
+      )}
+
       <Handle type="source" position={Position.Bottom} className="!bg-slate-400 !w-3 !h-3 !-bottom-1.5 !border-2 !border-white" />
     </div>
   );

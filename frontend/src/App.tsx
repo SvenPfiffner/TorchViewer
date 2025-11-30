@@ -22,7 +22,8 @@ class SimpleModel(nn.Module):
         x = self.relu(x)
         return self.linear(x.view(x.size(0), -1))
 
-model = SimpleModel()`);
+model = SimpleModel()
+example_input = torch.randn(1, 1, 28, 28)`);
 
   const [graphData, setGraphData] = useState<{ nodes: any[], edges: any[] } | null>(null);
   const [error, setError] = useState<string | null>(null);

@@ -59,6 +59,18 @@ async def analyze_model(request: CodeRequest):
         tracer = fx.Tracer()
         graph = tracer.trace(model)
         
+        # Shape Inference
+        example_input = exec_globals.get("example_input")
+        if example_input is not None:
+            try:
+                from torch.fx.passes.shape_prop import ShapeProp
+                # Wrap model in GraphModule for ShapeProp
+                gm = fx.GraphModule(model, graph)
+                ShapeProp(gm).propagate(example_input)
+                # Graph is modified in-place with tensor_meta
+            except Exception as e:
+                print(f"DEBUG: Shape inference failed: {e}")
+
         nodes = []
         edges = []
         
@@ -71,6 +83,26 @@ async def analyze_model(request: CodeRequest):
 
         for node in graph.nodes:
             metadata = {}
+            
+            # Extract Shape Information
+            if hasattr(node, 'meta') and 'tensor_meta' in node.meta:
+                tensor_meta = node.meta['tensor_meta']
+                print(f"DEBUG: Node {node.name} has tensor_meta: {tensor_meta}")
+                # tensor_meta can be a TensorMetadata, or a tuple/list of them
+                def extract_shape(tm):
+                    if hasattr(tm, 'shape'):
+                        return list(tm.shape)
+                    return None
+                
+                if hasattr(tensor_meta, 'shape'):
+                    metadata['shape'] = extract_shape(tensor_meta)
+                elif isinstance(tensor_meta, (list, tuple)):
+                    metadata['shape'] = [extract_shape(tm) for tm in tensor_meta]
+                
+                print(f"DEBUG: Extracted shape for {node.name}: {metadata.get('shape')}")
+            else:
+                print(f"DEBUG: Node {node.name} has NO tensor_meta")
+
             if node.op == 'call_module':
                 try:
                     print(f"DEBUG: Getting module for target: {node.target}")
