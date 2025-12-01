@@ -97,3 +97,9 @@ example_input = torch.randn(1, 1, 28, 28)
 *   **Frontend**: React, Vite, TypeScript, TailwindCSS, React Flow, Lucide Icons.
 *   **Backend**: FastAPI, PyTorch (`torch.fx`).
 
+## Note
+This is a small personal project that I built to fill a personal need.
+I’m sharing it publicly because I find it useful and thought others might as well, but it’s not intended to be production-ready and I don’t plan to actively maintain or extend it. If you find it useful, enjoy it with no license restriction.
+
+TorchViewer executes arbitrary Python code, so please run it locally and avoid exposing it on any public server.
+
