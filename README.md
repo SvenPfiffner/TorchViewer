@@ -1,8 +1,20 @@
 # TorchViewer - Interactive PyTorch Model Visualizer
 
+**TorchViewer** is a small, interactive web application designed to help visualize PyTorch models. By combining a React Flow frontend with a `torch.fx` backend, TorchViewer transforms code into beautiful, explorable graphs in real-time.
+
 ![TorchViewer Demo](assets/demo.png)
 
-**TorchViewer** is a small, interactive web application designed to help visualize PyTorch models. By combining a React Flow frontend with a `torch.fx` backend, TorchViewer transforms code into beautiful, explorable graphs in real-time.
+No matter your model architecture and design, the symbolic execution of `torch.fx` will capture the layout of your model and display it accordingly
+
+![TorchViewer Demo 2](assets/demo2.png)
+
+Even implied operations are supported. Including an analysis on the expected input and output shapes
+
+![TorchViewer Demo 3](assets/demo3.png)
+
+Including a nice summary of the used parameters
+
+![TorchViewer Demo 4](assets/demo4.png)
 
 ## ✨ Key Features
 
